@@ -28,10 +28,20 @@ Administrando el tráfico de la red dentro de las instalaciones educativas y un 
     Se activaron los puertos con su modo correspondiente con los comandos "interface range Fa0/#-0/# o Gig0/1-2" y siguiendo con el           comando "switchport mode access", para los puertos de la vlan nativa, se seleccionaba sus puertos y se utilizaban los comando   "switchport mode trunk"
     Se Asignaron los puertos a cada vlan en cada switch con los comandos "interface range Fa0/#-0/# o Gig0/1-2", siguiendo con el comand "switchport access vlan ##", y para los puertos de la vlan nativa, se utilizo el comando "switchport trunk native vlan 99".
     Cabe aclarar que esta configuracion no aplica para los dispositivos con la configuracion de red inalambrica.
-    
 
-
-
+* La configuracion del router:
+  1) Se asigna el nombre, las claves de la consola, vty y el modo privilegiado y el mensaje del día. (Todo Siempre se guardaba los cambios realizados con el comando "copy running-config startup-config"
+  2) Se activa el puerto del router que se utilizara con el comando "interface Fa0/0"
+  3) Se establece la encapsulacion de enlace y se asocia las Vlans con cada subinterfaz del router con los siguientes comandos "interface fastethernet 0/0.##(numero de la Vlan)" y encapsulation dot1q ##(numero de la vlan)
+  
+* Configuracion del access point a traves del controlador inalambrico de LANs
+ 1) Se conecta el controlador como la topologia lo indica
+ 2) Se asigna una IP con su respectiva mascara al controlador
+ 3) A traves de un PC conectado a al controlador, se entra a el navegador y en el buscador se ingresa: http://#.#.#.#(IP asignada al controlador), para asi entrar a la configuracion inicial del controlador.
+ 4) Se crea usuario y contraseña y se ingresa a la configuracion
+ 5) Se registra el controlador, Con datos como su ip y mascara
+ 6) Ya registrado, con cualquier PC conectado a la red campus, se entra a el navegador y en el buscador se ingresa otra vez pero cambiando el protocolo http a https: https://#.#.#.#
+ 7) Se ingresa con usuario y contraseña ya creadas y se ingresa al aplicativo completo de configuracion del controlador
 
 
 ### METODOLOGÍA SEGUIDA.
