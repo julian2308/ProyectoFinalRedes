@@ -3,9 +3,36 @@
 ## Presentado por: Julián Alvarado, Julián Durán & Julián Pinilla.
 
 ### CONTEXTO DEL PROBLEMA.
+Un cliente de tipo empresarial le solicita un servicio de instalación de redes a la empresa Julianes SAS, este cliente tiene como necesidad montar una red educativa para la universidad de la sabana, esta red, además de necesitar diferentes subredes de acuerdo a la persona que la esté usando, divididas de la siguiente manera, 3 departamentos de uso regular, siendo Estudiantes, Profesores y Una subred particular en la biblioteca, además de una subred de servicio técnico y nativa, solicitando 5 en total.
+Administrando el tráfico de la red dentro de las instalaciones educativas y un teniendo un servidor DHCP para la optimización de conexión, tiene un punto de acceso inalámbrico, que permite la conexión de usuarios sin necesidad de los equipos propios de la universidad (Ubicados en la biblioteca). Por otro lado, este cliente también solicita una instalación de una red para la implementación del internet de las cosas en su casa (Una casa inteligente). Por último, se solicita que estas dos redes estén en comunicación entre sí y con unos servidores WEB y DNS. El cliente solicita que el montaje sea con la topología evaluada de acuerdo con su capital, siendo la siguiente:
+![image](https://github.com/julian2308/ProyectoFinalRedes/assets/88839459/7d5d8f1a-25bb-42bf-a399-8ff488606153)
 
 
 ### MONTAJE
+#### Red Campus
+* Red “Campus”: 128.10+X.0.0/16: Con la topologia solicitada, primero verificamos la capacidad de la Red :
+![Imagen de WhatsApp 2023-05-18 a las 11 43 59](https://github.com/julian2308/ProyectoFinalRedes/assets/88839459/9bab2a28-0e32-470a-9688-77cae3bb5d3c)
+  Después, Se formula un sistema de direccionamiento de acuerdo a las Vlans solicitadas, con 950 posibles host, las VLan 20,35 y 40, y con 254 posibles host, las Vlans 55 y 99, buscamos la mascara de red mas optima usando el metodo de bits aprendido en clase:
+  ![Imagen de WhatsApp 2023-05-18 a las 11 44 00](https://github.com/julian2308/ProyectoFinalRedes/assets/88839459/232a3f09-dd56-46cb-afc6-dce8cb9f8a1a)
+  Y se plantea la division de subredes con sus respectivos intervalos de Host:
+  ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/88839459/afbc89d3-9d89-4511-84fe-c2ac132f2ecf)
+  La tabla de direccionamiento no se realiza, al tener un servido DHCP, que configura automaticamente la configuracion IP de los nodos      terminales, este proceso sera explicado mas tarde 
+
+* Luego del subneteo correspondiente, se configura el servidor DHCP de esta manera:
+* Posteriormente, se configuran los switch de la siguiente manera:
+  1) Se asigna el nombre, las claves de la consola, vty y el modo privilegiado y el mensaje del día. (Todo Siempre se guardaba los cambios realizados con el comando "copy running-config startup-config"
+  2) Se crean las Vlans con sus nombres correspondientes con "vlan #" y despues name (nombre de la vlan)
+  3) Se asigna la Ip a la interface de mantenimiento, siendo la vlan nativa 99 con el comando "interface vlan 99" y "ip address (ip y su mascara de red)"
+  4) Segun la tabla de asignacion de Vlanes que es requerida y solicitada por el usuario:
+    ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/88839459/64dea675-bf35-4e22-b36b-720d225e6db5)
+    Se activaron los puertos con su modo correspondiente con los comandos "interface range Fa0/#-0/# o Gig0/1-2" y siguiendo con el           comando "switchport mode access", para los puertos de la vlan nativa, se seleccionaba sus puertos y se utilizaban los comando   "switchport mode trunk"
+    Se Asignaron los puertos a cada vlan en cada switch con los comandos "interface range Fa0/#-0/# o Gig0/1-2", siguiendo con el comand "switchport access vlan ##", y para los puertos de la vlan nativa, se utilizo el comando "switchport trunk native vlan 99".
+    Cabe aclarar que esta configuracion no aplica para los dispositivos con la configuracion de red inalambrica.
+    
+
+
+
+
 
 ### METODOLOGÍA SEGUIDA.
 
