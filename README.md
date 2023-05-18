@@ -16,6 +16,25 @@
 El objetivo de STP es mantener una red libre de bucles. Un camino libre de bucles se consigue cuando un dispositivo es capaz de reconocer un bucle en la topología y bloquear uno o más puertos redundantes" [4].
 * Subneteo: "Hace referencia a la subdivisión de una red en varias subredes. El subneteo permite a los administradores de red, por ejemplo, dividir una red empresarial en varias subredes sin hacerlo público en Internet. Esto se traduce en que el router que establece la conexión entre la red e Internet se especifica como dirección única, aunque puede que haya varios hosts ocultos. Así, el número de hosts que están a disposición del administrador aumenta considerablemente" [5].
 
+### AGENDA PROYECTO REDES.
+#### Martes 9 de mayo.
+Análisis de la topología a montar, lectura y entendimiento del documento, repartición básica de las tareas.
+Alvarado: Servidor DNS y Web.
+Durán: IOT LAN.
+Pinilla: Montaje básico de la red campus.
+#### Viernes 12 de mayo.
+Reporte de avances, corrección de conexiones en red campus y pruebas de red IOT. Las tareas asignadas en la reunión anterior fueron completadas con éxito.
+Alvarado: Configuración DHCP en red campus.
+Durán: Conexión Serial entre campus e ISP.
+Pinilla: Conexión entre Cloud e ISP.
+#### Lunes 15 de mayo.
+Reporte de avances, debugeo en conjunto del servicio DNS para la conexión desde PC pertenecientes a la red campus. Únicamente falla conexión entre Cloud e ISP, resto de tareas completadas correctamente.
+Alvarado & Durán: Revisión conexión Cloud e ISP.
+Pinilla: Conexión y configuración del Access Point.
+#### Jueves 18 de mayo.
+Corrección final de errores y grabación del vídeo.
+
+
 
 
 
