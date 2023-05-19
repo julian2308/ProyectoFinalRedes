@@ -21,6 +21,15 @@ Administrando el tráfico de la red dentro de las instalaciones educativas y un 
 
 
 * Luego del subneteo correspondiente, se configura el servidor DHCP de esta manera:
+
+  1) Se conecta el servidor DHCP al router al puerto correspondiente a la Vlan solicitada (Vlan 55).
+  2) Se le asigna una Ip estática perteneciente a la Vlan 55 y se le asigna el default gateway correspondiente
+     ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/64561271/9e7fa420-f512-4d16-b10a-dc4c3ec10eb8)
+     ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/64561271/7ed46575-c0e7-46ab-9e8b-40bd2073e633)
+  3) Posteriormente, se inicializa el servicio DHCP, y se crean las pools correspondientes a cada Vlan, en las cuales se les específica el default gateway dependiendo cuál Vlan es, y el rango de direcciones IP,            finalmente a todas se les asigna el mismo DNS
+  ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/64561271/f59ef0ab-7fcb-453d-ad2f-e82640433690)
+
+
 * Posteriormente, se configuran los switch de la siguiente manera:
   1) Se asigna el nombre, las claves de la consola, vty y el modo privilegiado y el mensaje del día. (Todo Siempre se guardaba los cambios realizados con el comando "copy running-config startup-config"
   2) Se crean las Vlans con sus nombres correspondientes con "vlan #" y despues name (nombre de la vlan)
