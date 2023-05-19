@@ -60,7 +60,8 @@ Administrando el tráfico de la red dentro de las instalaciones educativas y un 
   4) Después, desde el CLI del Router de la red campus, teniendo permisos de administrador, se le notifica a cada Vlan cuál de los pool debe utilizar para asignar sus características através del protocol DHCP.
   5) Através del comando interface FastEthernet 0/1."numero de la Vlan" accedemos a la configuración de la Vlan.
   6) Finalmente con el comando ip helper-address 128.12.12.10 (dirección Ip del servidor DHCP) se le asigana a cada Vlan el pool correspondiente.
-  ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/64561271/8ded18f9-11be-4b9c-8135-c398c8fca0f2)
+  
+  * ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/64561271/8ded18f9-11be-4b9c-8135-c398c8fca0f2)
 
   
 * Configuracion del access point a traves del controlador inalambrico de LANs
