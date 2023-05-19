@@ -67,7 +67,35 @@ Para los otros dispositivos, hay que configurar manualmente la WLAN, dijitando e
 Se codifico desde una plantila de codigo en el servidor web como el Servidor de Socket TCP y en cada computador como clientes del servidor Socket TCP:
 ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/88839459/b6850b83-ad9c-435d-953a-cbb6b95676d0)
 
+### Resultados y analisis
+#### 1)	Evaluar el flujo bidireccional de datos generado al acceder a la página alojada en el servidor Web por los nodos terminales de las diferentes redes que conforman la topología de la Figura 1, utilizando el servicio DNS. Justifique su análisis utilizando capturas con el simulador y los filtros de paquetes de Cisco Packet Tracer.
 
+
+#### 2)	Evaluar el flujo bidireccional de datos generado al acceder desde los nodos terminales, tipo smartphone y Laptop pertenecientes a la LAN Mi Casa “Inteligente”, a la interfaz gráfica de gestión de los dispositivos de Internet de las Cosas que se incluyen en Mi Casa “Inteligente”. Justifique su análisis utilizando capturas con el simulador y los filtros de paquetes de Cisco Packet Tracer.
+
+#### 3)	Evaluar el flujo bidireccional de datos generado por los PCs de la red “Campus” al ejecutar el script cliente basado en socket TCP y al conectarse con el servidor socket-TCP corriendo en el Servidor Web. Justifique su análisis utilizando capturas con el simulador y los filtros de paquetes de Cisco Packet Tracer.
+Como primera Instancia, al poner a correr el socket TCP desde un computador y el servidor, siendo el servidor el que corre primero, el computador manda un paquete de capa 4, desde el puerto del computador al puerto del servidor Web con estos propositos y especificaciones.
+
+![image](https://github.com/julian2308/ProyectoFinalRedes/assets/88839459/0b22c278-6920-4518-8efe-375381447918)
+
+Siendo un paquete de tipo TCP, ya que se define no solo una IP, si no un puerto destino en especifico 
+Al llegar a el servidor WEB, podemos ver que recibe la informacion y inmediatamente cierra la conexion TCP
+
+![image](https://github.com/julian2308/ProyectoFinalRedes/assets/88839459/2f8e3daf-c2a1-4775-90b1-bb9b630b321e)
+
+Se puede intuir que es debido al numero de secuencia en el packete TCP, que cuando es 1, la comunicacion TCP se desconecta, mientras que, cuando es 0, se recibe y se acepta la conexion TCP asi:
+
+![image](https://github.com/julian2308/ProyectoFinalRedes/assets/88839459/2330ee43-8c8c-46f3-b290-9b8182fef581)
+
+Por ultimo, el PC recibe una respuesta que la conexion TCP del socket due establecida
+
+![image](https://github.com/julian2308/ProyectoFinalRedes/assets/88839459/f4332d84-596e-4d8e-9b13-fb6f9094f5c8)
+
+Se puede evaluar que esta comunicacion esta funcionando como lo esperado y sin fin, ademas de demostrar unos aspectos interesantes, por ejemplo, la conexion TCP entre el servidor y el cliente es de capa 7:
+
+![image](https://github.com/julian2308/ProyectoFinalRedes/assets/88839459/b9549086-72fb-4604-b24b-e2da60553b31)
+
+Pero toda la comprobacion de IP y puertos se realiza en la capa 4.
 
 
 
