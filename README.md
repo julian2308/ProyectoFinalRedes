@@ -31,6 +31,10 @@ Administrando el tráfico de la red dentro de las instalaciones educativas y un 
     ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/88839459/64dea675-bf35-4e22-b36b-720d225e6db5)
     Se activaron los puertos con su modo correspondiente con los comandos "interface range Fa0/#-0/# o Gig0/1-2" y siguiendo con el comando "switchport mode access", para los puertos de la vlan nativa, se seleccionaba sus puertos y se utilizaban los comando   "switchport mode trunk"
     Se Asignaron los puertos a cada vlan en cada switch con los comandos "interface range Fa0/#-0/# o Gig0/1-2", siguiendo con el comand "switchport access vlan ##", y para los puertos de la vlan nativa, se utilizo el comando "switchport trunk native vlan 99".
+    Por ultimo con el codigo "spanning-tree mode rapid-pvst" Para activar el protocolo PVRST (Per VLAN Rapid Spanning Tree).
+    
+    ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/88839459/d81cdbc4-6540-43fe-a0e2-c63a3f6eafe9)
+
     Cabe aclarar que esta configuracion no aplica para los dispositivos con la configuracion de red inalambrica.
 
 * La configuracion del router campus (R1 campus):
