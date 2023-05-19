@@ -141,13 +141,20 @@ Pero toda la comprobacion de IP y puertos se realiza en la capa 4.
 
 
 ### METODOLOGÍA SEGUIDA.
-
-* Red LAN: "Se conoce como red LAN (siglas del inglés: Local Área Network, que traduce Red de Área Local) a una red informática cuyo alcance se limita a un espacio físico reducido, como una casa, un departamento o a lo sumo un edificio" [1].
+Estos son los conceptos, protocolos y servicios aplicados en el desarrollo.
 * VLAN: "Las VLAN o también conocidas como «Virtual LAN» nos permite crear redes lógicamente independientes dentro de la misma red física, haciendo uso de switches gestionables que soportan VLANs para segmentar adecuadamente la red" [2]. Básicamente permiten segmentar una misma red apartir de un Switch, y tener distintas subredes.
 * IPv4: "(Internet Protocol versión 4) es el formato de dirección estándar que permite que todas las máquinas en Internet se comuniquen entre sí. IPv4 se escribe como una cadena de dígitos de 32 bits y una dirección IPv4 se compone de cuatro números entre 0 y 255, separados por puntos" [3].
 * Spanning Tree: "Spanning Tree Protocol (STP) es un protocolo de capa dos publicado en la especificación IEEE 802.1.
 El objetivo de STP es mantener una red libre de bucles. Un camino libre de bucles se consigue cuando un dispositivo es capaz de reconocer un bucle en la topología y bloquear uno o más puertos redundantes" [4].
 * Subneteo: "Hace referencia a la subdivisión de una red en varias subredes. El subneteo permite a los administradores de red, por ejemplo, dividir una red empresarial en varias subredes sin hacerlo público en Internet. Esto se traduce en que el router que establece la conexión entre la red e Internet se especifica como dirección única, aunque puede que haya varios hosts ocultos. Así, el número de hosts que están a disposición del administrador aumenta considerablemente" [5].
+* HTTP: "Es el nombre de un protocolo el cual nos permite realizar una petición de datos y recursos, como pueden ser documentos HTML" [6].
+* DNS: "Corresponde a las siglas en inglés de "Domain Name System", es decir, "Sistema de nombres de dominio". Este sistema es básicamente la agenda telefónica de la Web que organiza e identifica dominios. estas siendo protocoles de la capa de aplicación en el proceso de encapsulamiento y des encapsulamiento de datos" [7].
+* TCP: "TCP (Protocolo de Control de Transmisión, por sus siglas en inglés Transmission Control Protocol) es protocolo de red importante que permite que dos anfitriones (hosts) se conecten e intercambien flujos de datos, este siendo el protocolo de la capa de tranporte" [8].
+* IP: "Protocolo de internet, que permite identificar un dispositivo en una red, siendo el Router el generador de esa IP, y ese router asigna a cada dispositivo conectado a la red su propia IP a través del protocolo" [9].
+* DHCP: "(Protocolo de configuración dinámica de host) o también conocido como «Dynamic Host Configuration Protocol« , asignando las direcciones lógicas de cada dispositivo, al ser la capa de red en el modelo TCP/IP" [10].
+* Red LAN: "Se conoce como red LAN (siglas del inglés: Local Área Network, que traduce Red de Área Local) a una red informática cuyo alcance se limita a un espacio físico reducido, como una casa, un departamento o a lo sumo un edificio" [11].
+* Socket: "Los sockets son canales de comunicación que permiten que procesos no relacionados intercambien datos localmente y entre redes. Un único socket es un punto final de un canal de comunicación bidireccional" [12].
+* WAN: "Una red de área amplia (WAN) es la tecnología que conecta entre sí a las oficinas, los centros de datos, las aplicaciones en la nube y el almacenamiento en la nube" [13].
 
 ### AGENDA PROYECTO REDES.
 #### Martes 9 de mayo.
@@ -168,16 +175,18 @@ Pinilla: Conexión y configuración del Access Point.
 Corrección final de errores y grabación del vídeo.
 
 
-
-
-
-
-
-
 ### REFERENCIAS
 * [1] Fragmento tomado de: "https://concepto.de/red-lan/#ixzz7xxuZ6gL7"
 * [2] Fragmento tomado de: "https://www.redeszone.net/tutoriales/redes-cable/vlan-tipos-configuracion/"
 * [3] Fragmento tomado de: "https://www.avg.com/es/signal/ipv4-vs-ipv6#:~:text=IPv4%20(Internet%20Protocol%20versi%C3%B3n%204,y%20255%2C%20separados%20por%20puntos."
 * [4] Fragmento tomado de: "https://aprenderedes.com/2019/11/protocolo-de-arbol-de-extensionstp/"
 * [5] Fragmento tomado de: "https://www.ionos.es/digitalguide/servidores/know-how/subnetting-como-funcionan-las-subredes/"
+* [6] Fragmento tomado de: "https://developer.mozilla.org/es/docs/Web/HTTP/Overview"
+* [7] Fragmento tomado de: "https://developer.mozilla.org/es/docs/Glossary/TCP"
+* [8] Fragmento tomado de: "https://support.google.com/a/answer/48090?hl=es-419#:~:text=DNS%20corresponde%20a%20las%20siglas,que%20organiza%20e%20identifica%20dominios."
+* [9] Fragmento tomado de: "https://www.avast.com/es-es/c-what-is-an-ip-address"
+* [10] Fragmento tomado de: "https://www.redeszone.net/tutoriales/internet/que-es-protocolo-dhcp/"
+* [11] https://developer.mozilla.org/es/docs/Learn/Server-side/First_steps/Client-Server_overview
+* [12] Fragmento tomado de: https://developer.mozilla.org/es/docs/Learn/Server-side/First_steps/Client-Server_overview
+* [13] Fragmento tomado de: "https://aws.amazon.com/es/what-is/wan/#:~:text=Una%20red%20de%20%C3%A1rea%20amplia%20(WAN)%20es%20la%20tecnolog%C3%ADa%20que,el%20almacenamiento%20en%20la%20nube."
 * Curso de Skills For All Networking Essentials. Módulo 17 y 18. "https://skillsforall.com/launch?id=104c1536-83d6-47db-b7a1-6007327b3134"
