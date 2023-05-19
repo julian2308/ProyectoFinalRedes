@@ -29,10 +29,16 @@ Administrando el tráfico de la red dentro de las instalaciones educativas y un 
     Se Asignaron los puertos a cada vlan en cada switch con los comandos "interface range Fa0/#-0/# o Gig0/1-2", siguiendo con el comand "switchport access vlan ##", y para los puertos de la vlan nativa, se utilizo el comando "switchport trunk native vlan 99".
     Cabe aclarar que esta configuracion no aplica para los dispositivos con la configuracion de red inalambrica.
 
-* La configuracion del router:
+* La configuracion del router campus (R1 campus):
   1) Se asigna el nombre, las claves de la consola, vty y el modo privilegiado y el mensaje del día. (Todo Siempre se guardaba los cambios realizados con el comando "copy running-config startup-config"
   2) Se activa el puerto del router que se utilizara con el comando "interface Fa0/0"
   3) Se establece la encapsulacion de enlace y se asocia las Vlans con cada subinterfaz del router con los siguientes comandos "interface fastethernet 0/0.##(numero de la Vlan)" y encapsulation dot1q ##(numero de la vlan)
+  4) Se activa el puerto del router que se utilizara con el comando "interface Serial0/2/0"
+  5) Se le asigna una dirección ip para poder comunicarse con el router ISP que en este caso seria 11.130.4.1
+  6) 
+* Configuración del ruter isp (ISP):
+  1) Se asigna el nombre, las claves de la consola, vty y el modo privilegiado y el mensaje del día. (Todo Siempre se guardaba los cambios realizados con el comando "copy running-config startup-config"
+  2) Se activa el puerto del router que se utilizara con el comando "interface Fa0/0"
   
 * Se configura el servidor Web y el servidor DNS.
   1) Teniendo el servidor Web, inicialmente se le asigna una Ip estática que se encuentra dentro del rango determinado, y el default gateway a la interface correspondiente del router ISP.
