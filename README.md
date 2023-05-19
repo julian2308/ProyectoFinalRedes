@@ -14,9 +14,11 @@ Administrando el tráfico de la red dentro de las instalaciones educativas y un 
 ![Imagen de WhatsApp 2023-05-18 a las 11 43 59](https://github.com/julian2308/ProyectoFinalRedes/assets/88839459/9bab2a28-0e32-470a-9688-77cae3bb5d3c)
   Después, Se formula un sistema de direccionamiento de acuerdo a las Vlans solicitadas, con 950 posibles host, las VLan 20,35 y 40, y con 254 posibles host, las Vlans 55 y 99, buscamos la mascara de red mas optima usando el metodo de bits aprendido en clase:
   ![Imagen de WhatsApp 2023-05-18 a las 11 44 00](https://github.com/julian2308/ProyectoFinalRedes/assets/88839459/232a3f09-dd56-46cb-afc6-dce8cb9f8a1a)
-  Y se plantea la division de subredes con sus respectivos intervalos de Host:
+  Se plantea la division de subredes con sus respectivos intervalos de Host:
   ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/88839459/afbc89d3-9d89-4511-84fe-c2ac132f2ecf)
-  La tabla de direccionamiento no se realiza, al tener un servido DHCP, que configura automaticamente la configuracion IP de los nodos      terminales, este proceso sera explicado mas tarde 
+  Y tambien se plantea La tabla de direccionamiento:
+  ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/88839459/7ebcf7a3-ba03-46cc-a307-d708178b5179)
+
 
 * Luego del subneteo correspondiente, se configura el servidor DHCP de esta manera:
 * Posteriormente, se configuran los switch de la siguiente manera:
@@ -25,7 +27,7 @@ Administrando el tráfico de la red dentro de las instalaciones educativas y un 
   3) Se asigna la Ip a la interface de mantenimiento, siendo la vlan nativa 99 con el comando "interface vlan 99" y "ip address (ip y su mascara de red)"
   4) Segun la tabla de asignacion de Vlanes que es requerida y solicitada por el usuario:
     ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/88839459/64dea675-bf35-4e22-b36b-720d225e6db5)
-    Se activaron los puertos con su modo correspondiente con los comandos "interface range Fa0/#-0/# o Gig0/1-2" y siguiendo con el           comando "switchport mode access", para los puertos de la vlan nativa, se seleccionaba sus puertos y se utilizaban los comando   "switchport mode trunk"
+    Se activaron los puertos con su modo correspondiente con los comandos "interface range Fa0/#-0/# o Gig0/1-2" y siguiendo con el comando "switchport mode access", para los puertos de la vlan nativa, se seleccionaba sus puertos y se utilizaban los comando   "switchport mode trunk"
     Se Asignaron los puertos a cada vlan en cada switch con los comandos "interface range Fa0/#-0/# o Gig0/1-2", siguiendo con el comand "switchport access vlan ##", y para los puertos de la vlan nativa, se utilizo el comando "switchport trunk native vlan 99".
     Cabe aclarar que esta configuracion no aplica para los dispositivos con la configuracion de red inalambrica.
 
@@ -42,9 +44,13 @@ Administrando el tráfico de la red dentro de las instalaciones educativas y un 
  5) Se registra el controlador, Con datos como su ip y mascara
  6) Ya registrado, con cualquier PC conectado a la red campus, se entra a el navegador y en el buscador se ingresa otra vez pero cambiando el protocolo http a https: https://#.#.#.#
  7) Se ingresa con usuario y contraseña ya creadas y se ingresa al aplicativo completo de configuracion del controlador
- 8) En la seccion de interfaces del controlador, se crearon las interfaces inalambricas, con su propio servidor de DHCP, dandoles su respectiva ip, mascara de subred, puerta de enlace y IP para su propio servidor DHCP
+ 8) En la seccion de interfaces del controlador, se crearon las interfaces inalambricas, con su propio servidor de DHCP, dandoles su respectiva ip, mascara de subred, puerta de 
+ enlace y IP para su propio servidor DHCP
+ 
  ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/88839459/dd7714ae-0af1-46e3-8b9a-1dd5d647e63b)
+ 
  ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/88839459/56b139c5-3e4e-4c70-87e8-1eb1a7c93aba)
+ 
  9) Se Crearon las redes WLAN a partir de las interfaces creadas anteriormente, con seguridad WPA2 y clave PSK como Clave de autenticacion
  ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/88839459/84c75ac0-8db0-4a76-af29-e35a94482e97)
  10) Se creo el propio servidor DHCP para la VLAN nativa (99)
