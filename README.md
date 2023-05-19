@@ -71,7 +71,7 @@ Como se aprecia en la imagen, enfrente de las redes conectadas nos aparecen dife
   4) Se activa ahora el servicio DNS, y se le asigna la url con las iniciales a la dirección Ip del servidor web.
   ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/64561271/8ae2927c-6553-48ec-b3c2-2971a7a4b844)
 
-* Luego del subneteo correspondiente, se configura el servidor DHCP de esta manera:
+* Luego del subneteo correspondiente y configuración de los router R1 e ISP, se configura el servidor DHCP de esta manera:
 
   1) Se conecta el servidor DHCP al router al puerto correspondiente a la Vlan solicitada (Vlan 55).
   2) Se le asigna una Ip estática perteneciente a la Vlan 55 y se le asigna el default gateway correspondiente
@@ -85,10 +85,24 @@ Como se aprecia en la imagen, enfrente de las redes conectadas nos aparecen dife
   
   * ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/64561271/8ded18f9-11be-4b9c-8135-c398c8fca0f2)
 
+* Configuración red "Mi casa":
+  1) Inicialmente, es pertinente haber realizado la conexión entre cloud e ISP para poder proveer internet a la red de mi casa. La conexión de ISP a Cloud es recibida en Cloud en el puerto "Ethernet6".
+  2) Pasamos ahora al cable modem, el cual se encargara de recibir y retransmitir el servicio de internet al "homegateway". Desde el Cloud conectamos con un cable coaxial al puerto "coaxial7" el cual conectaremos directamente al cable modem.
+  3) En el cloud una vez habiendo conectado ambos dispositos ( ISP router y cable modem), establecemos que todo el trafico que llegue desde la interfaz "coaxial7" sea redirigida al puerto "Ethernet6" y viceversa. De esta forma lograremos conectividad a los servidores desde la red "mi casa".
+  4) Una vez hecho esto, establecemos desde cable modem hasta HomeGateway que será el dispositivo que configurara todos nuestors dispositivos IoT.
+  5) Para la configuración del HomeGateway, declaramos una dirección IP, mascara de subred, default gateway ( 11.130.4.5, interfaz0/0 de ISP router) y servidor DNS ( 209.175.52.3, dirección donde se aloja el servicio de DNS) para la interfaz Internet, que es donde recibiremos el servicio de internet de nuestro ISP. 
+  6) Para configurar ahora si nuestra red mi casa, en la interfaz "LAN", establecemos el default gateway de todos los dispositivos de nuestro hogar (192.168.25.1) como la dirección IP del dispositivo y su respectiva máscara de subred.
+  7) Para cada dispositivo, basta con establecer el protocolo DHCP para que todos obtengan su IP y máscara de subred de forma automática y, asimismo, se registren estos dispositivos en el servidor de IoT devices asociado a su default gateway. Para los dispositivos como Laptop-Hogar, smartphone-Hogar y Pc-hogar basta acceder a su interfaz "Wireless0" en su configuración y agregar el SSID de la red para poder conectarse inalámbricamente a la red y poder acceder y administrar el servidor IoT de hogar.
 
+  ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/110574175/2133c742-0209-4a07-8312-75317d203336)
 
+  ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/110574175/30f26875-546b-4045-a372-93ee8bec6319)
   
-* Configuracion del access point a traves del controlador inalambrico de LANs
+  ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/110574175/dd7ef2b2-bdae-43f8-842e-e32130c7e31a)
+  
+  Como se aprecia en la imagen, accediendo al servidor IoT asignado a la red "mi hogar", se nos despliegan todos los dispositivos conectados a nuestra red y de la misma forma nos permiten interactuar encendiéndolos o apagándolos.
+  
+* Configuración del access point a traves del controlador inalambrico de LANs
  1) Se conecta el controlador como la topologia lo indica
  2) Se asigna una IP con su respectiva mascara al controlador
  3) A traves de un PC conectado a al controlador, se entra a el navegador y en el buscador se ingresa: http://#.#.#.#(IP asignada al controlador), para asi entrar a la configuracion inicial del controlador.
@@ -139,6 +153,30 @@ La comunicación con la página web es através del protocolo (HTTP), el cual, c
 
 
 #### 2)	Evaluar el flujo bidireccional de datos generado al acceder desde los nodos terminales, tipo smartphone y Laptop pertenecientes a la LAN Mi Casa “Inteligente”, a la interfaz gráfica de gestión de los dispositivos de Internet de las Cosas que se incluyen en Mi Casa “Inteligente”. Justifique su análisis utilizando capturas con el simulador y los filtros de paquetes de Cisco Packet Tracer.
+
+Mediante cualquiera de los dipositivos inalámbricos (pc-Hogar, Smartphone-hogar o Laptop-Hogar) es posible acceder a la interfaz de dispositiovs IoT.
+ - Para Pc-Hogar:
+ - 
+  ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/110574175/f5c69567-381d-45bf-a203-d0f5290b3a46)
+  ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/110574175/44089c88-28af-44d2-a46d-2f4a0d7e13e3)
+
+- Para Smartphone-Hogar:
+- 
+  ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/110574175/af8647a6-f2ff-452c-b1b0-869204cafdcf)
+  ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/110574175/4473c520-0ac7-4421-9442-88d8b8c7522f)
+
+- Para Laptop-hogar:
+- 
+  ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/110574175/a1ef3c31-77f1-47a7-b9eb-6120389260d3)
+  ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/110574175/d739bdfc-2c1e-477a-98b2-abcdb48bb1c2)
+
+Al intentar acceder desde alguno de los nodos terminales, independiente de cual sea, los paquetes siguen el msimo patrón. Desde el nodo terminal del cual se accede al servidor se manda un paquete al homegateway.
+
+  ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/110574175/c385ca02-eda1-41ce-b743-08b4311a4aee)
+
+A partir de ahí, dependiendo del dispositivo que se active/desactive, el Homegateway manda un mensaje broadcast a toda la red para que el determinado dispositivo sea accionado mediante el servidor.
+
+  ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/110574175/51ea0088-a7b7-4b7f-8732-17f08a894150)
 
 #### 3)	Evaluar el flujo bidireccional de datos generado por los PCs de la red “Campus” al ejecutar el script cliente basado en socket TCP y al conectarse con el servidor socket-TCP corriendo en el Servidor Web. Justifique su análisis utilizando capturas con el simulador y los filtros de paquetes de Cisco Packet Tracer.
 Como primera Instancia, al poner a correr el socket TCP desde un computador y el servidor, siendo el servidor el que corre primero, el computador manda un paquete de capa 4, desde el puerto del computador al puerto del servidor Web con estos propositos y especificaciones.
