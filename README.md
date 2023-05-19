@@ -42,6 +42,26 @@ Administrando el tráfico de la red dentro de las instalaciones educativas y un 
  5) Se registra el controlador, Con datos como su ip y mascara
  6) Ya registrado, con cualquier PC conectado a la red campus, se entra a el navegador y en el buscador se ingresa otra vez pero cambiando el protocolo http a https: https://#.#.#.#
  7) Se ingresa con usuario y contraseña ya creadas y se ingresa al aplicativo completo de configuracion del controlador
+ 8) En la seccion de interfaces del controlador, se crearon las interfaces inalambricas, con su propio servidor de DHCP, dandoles su respectiva ip, mascara de subred, puerta de enlace y IP para su propio servidor DHCP
+ ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/88839459/dd7714ae-0af1-46e3-8b9a-1dd5d647e63b)
+ ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/88839459/56b139c5-3e4e-4c70-87e8-1eb1a7c93aba)
+ 9) Se Crearon las redes WLAN a partir de las interfaces creadas anteriormente, con seguridad WPA2 y clave PSK como Clave de autenticacion
+ ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/88839459/84c75ac0-8db0-4a76-af29-e35a94482e97)
+ 10) Se creo el propio servidor DHCP para la VLAN nativa (99)
+ ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/88839459/7f3d8079-0bd3-4e04-9caf-633584779094)
+ 11) En la consola del LWAP(Light weight access point) se asigno el controlador ya configurado como su controlador y por el protocolo DHCP, se le asigno su ip, mascara de subred, puerta de enlace y DNS.
+ 12) Se excluyen las direcciones IP que se quieren usar en las subredes WLAN mediante los comandos "ip dhcp excluded-address (direcciones IP que se quieren exluir para conexiones inalambricas) en el router.
+ 13) Para crear los servidores DHCP para las VLANS que necesitan tecnologia inalambricas, siendo las VLANS 20, 40 y 55. Se crearon en el router, con la siguiente secuencia de comandos: "ip dhcp pool WLAN-##(numero de VLAN)", "network (Id de la Vlan con su mascara de subred)", "default-router (puerta de enlace de la VLAN)" y "dns-server (servidor DNS).
+ ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/88839459/baa0c037-a218-4e88-a244-e1a575c6702f)
+14) Por ultimo, se conecto cada dispositivo a sus respectivas WLANs, para los laptop, habia que ingresar en el aplicativo de "PC wireless", seleccionar la WLAN e ingresar la contraseña para esa WLAn
+![image](https://github.com/julian2308/ProyectoFinalRedes/assets/88839459/d514fe57-f005-49a4-8ce3-8635a6a38203)
+Para los otros dispositivos, hay que configurar manualmente la WLAN, dijitando el nombre y clave asi:
+![image](https://github.com/julian2308/ProyectoFinalRedes/assets/88839459/3f289d5e-4bd4-424f-9cec-bc4278e54c9a)
+
+
+
+
+
 
 
 ### METODOLOGÍA SEGUIDA.
