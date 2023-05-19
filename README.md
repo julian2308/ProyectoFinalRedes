@@ -26,8 +26,13 @@ Administrando el tráfico de la red dentro de las instalaciones educativas y un 
   2) Se le asigna una Ip estática perteneciente a la Vlan 55 y se le asigna el default gateway correspondiente
      ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/64561271/9e7fa420-f512-4d16-b10a-dc4c3ec10eb8)
      ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/64561271/7ed46575-c0e7-46ab-9e8b-40bd2073e633)
-  3) Posteriormente, se inicializa el servicio DHCP, y se crean las pools correspondientes a cada Vlan, en las cuales se les específica el default gateway dependiendo cuál Vlan es, y el rango de direcciones IP,            finalmente a todas se les asigna el mismo DNS
+  3) Posteriormente, se inicializa el servicio DHCP, y se crean las pools correspondientes a cada Vlan, en las cuales se les específica el default gateway dependiendo cuál Vlan es, y el rango de direcciones IP,            finalmente a todas se les asigna el mismo DNS.
   ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/64561271/f59ef0ab-7fcb-453d-ad2f-e82640433690)
+  4) Después, desde el CLI del Router de la red campus, teniendo permisos de administrador, se le notifica a cada Vlan cuál de los pool debe utilizar para asignar sus características através del protocol DHCP.
+  5) Através del comando interface FastEthernet 0/1."numero de la Vlan" accedemos a la configuración de la Vlan.
+  6) Finalmente con el comando ip helper-address 128.12.12.10 (dirección Ip del servidor DHCP) se le asigana a cada Vlan el pool correspondiente
+  ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/64561271/8ded18f9-11be-4b9c-8135-c398c8fca0f2)
+
 
 
 * Posteriormente, se configuran los switch de la siguiente manera:
