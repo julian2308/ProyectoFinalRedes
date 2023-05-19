@@ -57,6 +57,10 @@ Administrando el tráfico de la red dentro de las instalaciones educativas y un 
 ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/88839459/d514fe57-f005-49a4-8ce3-8635a6a38203)
 Para los otros dispositivos, hay que configurar manualmente la WLAN, dijitando el nombre y clave asi:
 ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/88839459/3f289d5e-4bd4-424f-9cec-bc4278e54c9a)
+#### Comunicacion Socket TCP
+Se codifico desde una plantila de codigo en el servidor web como el Servidor de Socket TCP y en cada computador como clientes del servidor Socket TCP:
+![image](https://github.com/julian2308/ProyectoFinalRedes/assets/88839459/b6850b83-ad9c-435d-953a-cbb6b95676d0)
+
 
 
 
