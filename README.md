@@ -50,8 +50,19 @@ Administrando el tráfico de la red dentro de las instalaciones educativas y un 
   4) Después, desde el CLI del Router de la red campus, teniendo permisos de administrador, se le notifica a cada Vlan cuál de los pool debe utilizar para asignar sus características através del protocol DHCP.
   5) Através del comando interface FastEthernet 0/1."numero de la Vlan" accedemos a la configuración de la Vlan.
   6) Finalmente con el comando ip helper-address 128.12.12.10 (dirección Ip del servidor DHCP) se le asigana a cada Vlan el pool correspondiente.
-    ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/64561271/8ded18f9-11be-4b9c-8135-c398c8fca0f2)
-    
+  ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/64561271/8ded18f9-11be-4b9c-8135-c398c8fca0f2)
+  
+* Se configura el servidor Web y el servidor DNS.
+  1) Teniendo el servidor Web, inicialmente se le asigna una Ip estática que se encuentra dentro del rango determinado, y el default gateway a la interface correspondiente del router ISP.
+  ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/64561271/f2b4db4d-54dd-4097-a931-2da720eac83b)
+  2) Posteriormente activamos el servicio HTTP, y modificamos el index.html para tener nuestra página web personalizada.
+  ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/64561271/c3455805-942e-4f1e-83bb-e002a8ae355d)
+  3) De la misma forma asignamos una Ip estática al servidor DNS. Esta se utilizará en toda la topología como DNS Server.
+  ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/64561271/7456c20a-3817-4eea-b4a7-cbd5b861c82b)
+  4) Se activa ahora el servicio DNS, y se le asigna la url con las iniciales a la dirección Ip del servidor web.
+  ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/64561271/8ae2927c-6553-48ec-b3c2-2971a7a4b844)
+
+
   
 * Configuracion del access point a traves del controlador inalambrico de LANs
  1) Se conecta el controlador como la topologia lo indica
