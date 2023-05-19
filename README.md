@@ -162,6 +162,26 @@ El objetivo de STP es mantener una red libre de bucles. Un camino libre de bucle
 * Socket: "Los sockets son canales de comunicación que permiten que procesos no relacionados intercambien datos localmente y entre redes. Un único socket es un punto final de un canal de comunicación bidireccional" [12].
 * WAN: "Una red de área amplia (WAN) es la tecnología que conecta entre sí a las oficinas, los centros de datos, las aplicaciones en la nube y el almacenamiento en la nube" [13].
 
+Dispositivos utilizados:
+
+- PC-PT.
+- Access Point (3702i).
+- Server-PT.
+- Wireless Lan Controller1 (WLC-3504).
+- Switch (2960).
+- Laptop-PT.
+- Router (2811).
+- Cloud-PT
+- Cable Modem.
+- Smartphone
+- Light
+- Fan
+- Webcam
+- Appliance
+- Door
+- Window
+- Garage Door
+
 ### AGENDA PROYECTO REDES.
 #### Martes 9 de mayo.
 Análisis de la topología a montar, lectura y entendimiento del documento, repartición básica de las tareas.
