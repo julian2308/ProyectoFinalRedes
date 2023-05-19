@@ -102,7 +102,9 @@ Ya teniendo toda la topología correctamente montada y configurada, se puede acc
 * ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/64561271/c13aa869-772c-47fb-86b3-37d782e07ae9)
 * ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/64561271/c3a5a680-9b14-4489-baee-c5f0a0ae9f92)
 
-La comunicación con la página web es através del protocolo (HTTP), el cual, como bien sabemos funciona con la arquitectura cliente - servidor, esta se caracteriza por poseer como bien lo dice su nombre, un cliente y un sevidor. El cliente realiza peticiones al servidor, y este, responde a estas peticiones una a una, tanto como si funcionó, devolviendo el archivo HTML correspondiente a la ip, como si no funcionó, con una respuesta de código de estado 404 NOT FOUND. Finalmente, para una mejor experiencia de usuario, se usa el servicio DNS 
+La comunicación con la página web es através del protocolo (HTTP), el cual, como bien sabemos funciona con la arquitectura cliente - servidor, esta se caracteriza por poseer como bien lo dice su nombre, un cliente y un sevidor. El cliente realiza peticiones al servidor, y este, responde a estas peticiones una a una, tanto como si funcionó, devolviendo el archivo HTML correspondiente a la ip, como si no funcionó, con una respuesta de código de estado 404 NOT FOUND. Finalmente, para una mejor experiencia de usuario, se usa el servicio DNS, el cual se encarga de convertir las request enviaadas por el cliente en formato de URL, en direcciones Ip's que están asociadas a esta misma, y que los dispositivos son capaces de entender.
+* ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/64561271/b8d65dcc-b671-4d50-bc29-c65bab7cab59)
+
 
 
 
