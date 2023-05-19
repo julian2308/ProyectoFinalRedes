@@ -16,8 +16,12 @@ Administrando el tráfico de la red dentro de las instalaciones educativas y un 
   ![Imagen de WhatsApp 2023-05-18 a las 11 44 00](https://github.com/julian2308/ProyectoFinalRedes/assets/88839459/232a3f09-dd56-46cb-afc6-dce8cb9f8a1a)
   Se plantea la division de subredes con sus respectivos intervalos de Host:
   ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/88839459/afbc89d3-9d89-4511-84fe-c2ac132f2ecf)
-  Y tambien se plantea La tabla de direccionamiento:
+  Y tambien se plantea La tabla de direccionamiento para toda la topología:
   ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/88839459/7ebcf7a3-ba03-46cc-a307-d708178b5179)
+  ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/110574175/71e62921-2fea-48e0-ab0d-30d450b969fe)
+  ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/110574175/22a9b7ee-a9e6-4b42-9dde-e30af719919f)
+  ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/110574175/20e68c62-123d-4670-a87f-011972a8aa2e)
+
 
 * Posteriormente, se configuran los switch de la siguiente manera:
   1) Se asigna el nombre, las claves de la consola, vty y el modo privilegiado y el mensaje del día. (Todo Siempre se guardaba los cambios realizados con el comando "copy running-config startup-config"
@@ -30,15 +34,32 @@ Administrando el tráfico de la red dentro de las instalaciones educativas y un 
     Cabe aclarar que esta configuracion no aplica para los dispositivos con la configuracion de red inalambrica.
 
 * La configuracion del router campus (R1 campus):
-  1) Se asigna el nombre, las claves de la consola, vty y el modo privilegiado y el mensaje del día. (Todo Siempre se guardaba los cambios realizados con el comando "copy running-config startup-config"
-  2) Se activa el puerto del router que se utilizara con el comando "interface Fa0/0"
-  3) Se establece la encapsulacion de enlace y se asocia las Vlans con cada subinterfaz del router con los siguientes comandos "interface fastethernet 0/0.##(numero de la Vlan)" y encapsulation dot1q ##(numero de la vlan)
-  4) Se activa el puerto del router que se utilizara con el comando "interface Serial0/2/0"
-  5) Se le asigna una dirección ip para poder comunicarse con el router ISP que en este caso seria 11.130.4.1
-  6) 
+  1) Se asigna el nombre, las claves de la consola, vty y el modo privilegiado y el mensaje del día. (Todo Siempre se guardaba los cambios realizados con el comando "copy running-config startup-config".
+  2) Se activa el puerto del router que se utilizara con el comando "interface Fa0/0".
+  3) Se establece la encapsulacion de enlace y se asocia las Vlans con cada subinterfaz del router con los siguientes comandos "interface fastethernet 0/0.##(numero de la Vlan)" y encapsulation dot1q ##(numero de la vlan).
+  4) Se activa el puerto del router que se utilizara con el comando "interface Serial0/2/0".
+  5) Se le asigna una dirección ip para poder comunicarse con el router ISP que en este caso para esa interfaz seria 11.130.4.1.
+  6) escribimos el comando "#router rip version 2" en nuestra terminal para habilitar el protocolo ripv2 y habilitar la comunicación entre routers.
+  7) Usamos el comando "#network *ip*", el cual nos permite decirle al router ISP las redes que poseemos. En este caso, el router R1-Campus posee la red 128.12.12.0/16 en la interfaz Fa0/0 con sus respectivas vlans y subredes. Tambien, como se menciona anteriormente, en su interfaz Serial0/2/0 esta directamente conectada la red 11.130.4.1.
+  8) Guardamos la configuracion con el comando "#copy running-config startup config" y procedemos a verificar que el routing para este dispositivo se haya realizado correctamente.
+
+  ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/110574175/afeca67b-bff2-4494-9361-2c228ab16936)
+
+  ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/110574175/0682bca2-8fed-430e-af7f-68b4f72452d4)
+
 * Configuración del ruter isp (ISP):
-  1) Se asigna el nombre, las claves de la consola, vty y el modo privilegiado y el mensaje del día. (Todo Siempre se guardaba los cambios realizados con el comando "copy running-config startup-config"
-  2) Se activa el puerto del router que se utilizara con el comando "interface Fa0/0"
+  1) Se asigna el nombre, las claves de la consola, vty y el modo privilegiado y el mensaje del día. (Todo Siempre se guardaba los cambios realizados con el comando "copy running-config startup-config".
+  2) Se activa el puerto del router que se utilizara con el comando "interface Serial0/3/0" y le asignamos su dirección ip de 11.130.4.2 255.255.255.252 el cual permitira la conexión con el router "R1 Campus".
+  3) Se activa el puerto del router que se utilizara con el comando "interface Fa0/0" y le asignamos su dirección ip de 209.175.52.1 255.255.255.0 que es el defaul Gateway para la red de servidores y permitira su acceso desde la red campus.
+  4) Se activa el puerto del router que se utilizara con el comando "interface Fa0/1" y le asignamos su dirección ip de 11.130.4.5 255.255.255.252 el cual permitira la conexión del ISP router a Cloud y a la red "mi hogar".
+  5) De la misma forma que en "R1 campus", activamos la version 2 del protocolo de routing con el comando "#router rip version 2" habilitando la conexion al router "R1 campus".
+  6) nombramos todas las redes existentes a las que nuestro router ISP tiene conexión en sus terminales (network 11.130.4.2 para la conexion al router R1 campus, network 209.175.52.1 para conexiones con servidores   DNS y HTTP y network 11.130.4.5 para la conexión con Cloud que posteriormente conecta a red Mi hogar).
+  7) Volvemos a realizar el comando "#show ip route" para comprobar que realizamos efectivamente el procedimiento en nuestras redes. dado que ya hicimos este proceso con R1 campus, también nos aparecerán las redes que no estan conectadas directamente a nuestro ISP router pero si la interfaz mediante la que debe enviar los paquetes para acceder a la red campus. 
+
+  ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/110574175/05147b82-ee1e-4be1-addc-6bd1092bfd8b)
+
+Como se aprecia en la imagen, enfrente de las redes conectadas nos aparecen diferentes letras. C son para redes directamente conectadas, L para redes locales, y R para redes remotas, indicandonos también la via para acceder a ella.
+
   
 * Se configura el servidor Web y el servidor DNS.
   1) Teniendo el servidor Web, inicialmente se le asigna una Ip estática que se encuentra dentro del rango determinado, y el default gateway a la interface correspondiente del router ISP.
@@ -63,6 +84,8 @@ Administrando el tráfico de la red dentro de las instalaciones educativas y un 
   6) Finalmente con el comando ip helper-address 128.12.12.10 (dirección Ip del servidor DHCP) se le asigana a cada Vlan el pool correspondiente.
   
   * ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/64561271/8ded18f9-11be-4b9c-8135-c398c8fca0f2)
+
+
 
   
 * Configuracion del access point a traves del controlador inalambrico de LANs
