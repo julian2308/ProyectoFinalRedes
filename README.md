@@ -19,11 +19,6 @@ Administrando el tráfico de la red dentro de las instalaciones educativas y un 
   Y tambien se plantea La tabla de direccionamiento:
   ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/88839459/7ebcf7a3-ba03-46cc-a307-d708178b5179)
 
-
-
-
-
-
 * Posteriormente, se configuran los switch de la siguiente manera:
   1) Se asigna el nombre, las claves de la consola, vty y el modo privilegiado y el mensaje del día. (Todo Siempre se guardaba los cambios realizados con el comando "copy running-config startup-config"
   2) Se crean las Vlans con sus nombres correspondientes con "vlan #" y despues name (nombre de la vlan)
@@ -97,6 +92,15 @@ Se codifico desde una plantila de codigo en el servidor web como el Servidor de 
 
 ### Resultados y analisis
 #### 1)	Evaluar el flujo bidireccional de datos generado al acceder a la página alojada en el servidor Web por los nodos terminales de las diferentes redes que conforman la topología de la Figura 1, utilizando el servicio DNS. Justifique su análisis utilizando capturas con el simulador y los filtros de paquetes de Cisco Packet Tracer.
+
+Ya teniendo toda la topología correctamente montada y configurada, se puede acceder a la página web con la url asignada gracias al servidor DNS.
+
+* Desde la LAN de la casa.
+* ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/64561271/3b841798-edf4-45a2-a203-93c638e1034a)
+
+* Desde campus.
+* ![image](https://github.com/julian2308/ProyectoFinalRedes/assets/64561271/c13aa869-772c-47fb-86b3-37d782e07ae9)
+
 
 
 #### 2)	Evaluar el flujo bidireccional de datos generado al acceder desde los nodos terminales, tipo smartphone y Laptop pertenecientes a la LAN Mi Casa “Inteligente”, a la interfaz gráfica de gestión de los dispositivos de Internet de las Cosas que se incluyen en Mi Casa “Inteligente”. Justifique su análisis utilizando capturas con el simulador y los filtros de paquetes de Cisco Packet Tracer.
